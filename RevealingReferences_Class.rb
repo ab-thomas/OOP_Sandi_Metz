@@ -3,12 +3,14 @@ class RevealingReferences
   def initialize(data)
     @wheels = wheelify(data)
   end
-
+  # first - iterate over the array
   def diameters
-    wheels.collect {|wheel|
-      wheel.rim + (wheel.tyre * 2)}
+    wheels.collect {|wheel| diameter(wheel)}
   end
-    # ... now everyone can send rim/tyre to wheel
+  # second - calculate diameter of ONE wheel
+  def diameter(wheel)
+    wheel.rim + (wheel.tyre * 2)}
+  end
 
   Wheel = Struct.new(:rim, :tire)
   def wheelify(data)
